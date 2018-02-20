@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ScrabbleWebApi</title>
+    <%= csrf_meta_tags %>
+
+    <link href="https://unpkg.com/basscss@8.0.2/css/basscss.min.css" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <nav>
+      <div class="logo sm-col-left">
+        <%= link_to "ScrabbleWeb", root_url %>
+      </div>
+    </nav>
+
+    <%= yield %>
+  </body>
+</html>

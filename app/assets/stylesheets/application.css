@@ -1,0 +1,42 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 18px;
+  color: #2F2F2F;
+  margin: 0 auto;
+}
+
+nav {
+  margin:0 auto;
+  padding: 20px 0 0 40px;
+  height: 50px;
+  background: #fff;
+  background: -moz-linear-gradient(-45deg, #b600ed 3%, #00bdec 100%);
+  background: -webkit-linear-gradient(-45deg, #b600ed 3%,#00bdec 100%);
+  background: linear-gradient(135deg, #b600ed 3%,#00bdec 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b600ed', endColorstr='#00bdec',GradientType=1 );
+}
+
+.logo a{
+  color: #FFF;
+  font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue";
+  font-size: 110%;
+  font-weight: bold;
+  text-decoration: none;
+  padding-top: 10px;
+}
+
