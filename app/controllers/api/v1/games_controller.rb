@@ -14,6 +14,8 @@ class Api::V1::GamesController < ApplicationController
      if WordService.new.validate(params['word'])
        play = Play.create(game:game,word:params['word'], user_id:params['user_id'])
         render json: game, serializer: GameSerializer
+      else
+        return render json: WordService.new.json_error(params['word'])
      end
   end
 end

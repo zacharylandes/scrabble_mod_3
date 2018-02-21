@@ -7,7 +7,7 @@ class WordService
          return false
       else
         response = JSON.parse(response.body)
-        response['results'].first['lexicalEntries'][0]['inflectionOf'][0]['id']#[1]['inflectionOf'][0]['id']
+        response['results'].first['lexicalEntries'][0]['inflectionOf'][0]['id']
       end
   end
 
@@ -17,5 +17,10 @@ class WordService
         faraday.headers['app_key'] = ENV['secret']
         faraday.adapter Faraday.default_adapter
     end
+  end
+
+  def json_error(word)
+    text = '{"message":  "is not a valid word."}'
+     JSON.parse(text)
   end
 end
