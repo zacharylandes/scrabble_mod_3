@@ -1,22 +1,21 @@
 class WordService
 
   def validate(word)
-
-        response  = conn.get("api/v1/inflections/en/#{word}")
+      conn
+      response  = conn.get("api/v1/inflections/en/#{word}")
       if "Not Found".in?(response.body)
-        render :error
+         return false
       else
         response = JSON.parse(response.body)
         response['results'].first['lexicalEntries'][0]['inflectionOf'][0]['id']#[1]['inflectionOf'][0]['id']
       end
-    end
   end
-end
 
-def conn
-  Faraday.new(url:"https://od-api.oxforddictionaries.com") do |faraday|
-      faraday.headers['app_id'] = ENV['id']
-      faraday.headers['app_key'] = ENV['secret']
-      faraday.adapter Faraday.default_adapter
+  def conn
+    Faraday.new(url:"https://od-api.oxforddictionaries.com") do |faraday|
+        faraday.headers['app_id'] = ENV['id']
+        faraday.headers['app_key'] = ENV['secret']
+        faraday.adapter Faraday.default_adapter
+    end
   end
 end
