@@ -2,12 +2,25 @@
 
 require 'rails_helper.rb'
 describe 'scrabble' do
-  it 'verifies a word' do
+  it 'verifies a valid word' do
     visit '/'
 
     fill_in 'word', :with => "foxes"
 
     click_on "Validate Word"
+
+    expect(page).to have_content("foxes is a valid word and its root form is fox")
+
+  end
+
+  it 'gives an invaild repsonse if input is not a word' do
+    visit '/'
+
+    fill_in 'word', :with => "foxez"
+
+    click_on "Validate Word"
+
+    expect(page).to have_content("foxez is not a valid word")
 
   end
 end
