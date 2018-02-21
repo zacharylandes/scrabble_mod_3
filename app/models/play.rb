@@ -15,5 +15,15 @@ class Play < ApplicationRecord
   private
 
     def score_word
+      score = 0
+      word = self.word.split('').map {|letter|letter.upcase}
+      word.map do |letter|
+        letter_scores.each do |k,v|
+          if k == letter
+            score += v
+          end
+        end
+      end
+      self.score = score
     end
 end
